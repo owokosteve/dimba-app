@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    .is-mobile {
+        // position: fixed;
+        z-index: 2;
+    }
+
+    .sidenav-container {
+        flex: 1;
+    }
+
+    .is-mobile,
+    .sidenav-container {
+        flex: 1 0 auto;
+    }
+}
+
+
+mat-sidenav {
+    width: 250px;
+    background-color: var(--color-just-black);
+    border-radius: 0;
+
+    mat-nav-list {
+        button {
+            color: var(--color-surface75) !important;
+        }
+    }
+}
+
+mat-sidenav-content {
+    height: 100vh;
+}
