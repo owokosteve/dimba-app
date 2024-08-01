@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './livescores.component.html',
   styleUrl: './livescores.component.scss'
 })
-export class LivescoresComponent {
 
+
+export class LivescoresComponent {
+  
 }

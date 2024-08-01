@@ -1,0 +1,21 @@
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [(opened)] = "handleToggle">
+            <mat-nav-list>
+                @for (league of leagues; track league) {
+                <a href="" mat-list-item routerLink=".">
+                    <button mat-button>{{ league.country.code }}</button>
+                </a>
+                }
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <mat-toolbar>
+                <button mat-button (click)="snav.toggle()">
+                {{ handleToggle ? '<< Hide' : 'Show >>'}}
+                </button>
+            </mat-toolbar>
+            <router-outlet />
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

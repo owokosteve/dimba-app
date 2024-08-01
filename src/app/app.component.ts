@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar.component';
-import { SideNavComponent } from "./components/side-nav/side-nav.component";
+import { SideNavComponent } from "./components/container/side-nav.component";
 
 @Component({
   selector: 'app-root',
