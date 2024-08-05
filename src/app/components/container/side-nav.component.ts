@@ -8,7 +8,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
-import { LeaguesService } from '../../services/leagues.service';
+import { CountriesService } from '../../services/countries.service';
+
+export interface Country {
+  code : string,
+  flag : string,
+  name : string
+}
 
 @Component({
   selector: 'app-side-nav',
@@ -17,18 +23,18 @@ import { LeaguesService } from '../../services/leagues.service';
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.scss'
 })
-
 export class SideNavComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   events: string[] = [];
   opened!: boolean;
-  leagues: any[] = [];
+  countries: Country[] = [];
+  countriesService = inject(CountriesService);
   message = "";
   handleToggle!: boolean;
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private leaguesService: LeaguesService ) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -36,17 +42,29 @@ export class SideNavComponent implements OnDestroy {
   }
 
   ngOnInit(): void {
-    this.leaguesService.getLeagues().subscribe(data => {
-      for (let key in data) {
-        if(key === 'response') {
-          this.leagues = data[key];
+    this.countriesService.getCountries().subscribe(response => {
+      for (let key in response) {
+        if (key === "response") {
+          this.countries = response[key];
           break;
         }
       }
-      // this.leagues = data;
-      console.log(this.leagues);
+      console.log(this.countries);
     });
   }
+
+  // ngOnInit(): void {
+  //   this.leaguesService.getLeagues().subscribe(data => {
+  //     for (let key in data) {
+  //       if(key === 'response') {
+  //         this.leagues = data[key];
+  //         break;
+  //       }
+  //     }
+  //     // this.leagues = data;
+  //     console.log(this.leagues);
+  //   });
+  // }
  
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

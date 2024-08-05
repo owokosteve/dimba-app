@@ -1,19 +1,41 @@
 <div class="container" [class.is-mobile]="mobileQuery.matches">
     <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [(opened)] = "handleToggle">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [(opened)]="handleToggle">
+            <h5 class="sub-heading">Top 5 Leagues</h5>
             <mat-nav-list>
-                @for (league of leagues; track league) {
-                <a href="" mat-list-item routerLink=".">
-                    <button mat-button>{{ league.country.code }}</button>
-                </a>
-                }
+                <mat-list-item>
+                    <div class="list-item">
+                        <span class="flag"><img src="https://media.api-sports.io/flags/gb.svg" width="17.33" alt=""></span>
+                        <span class="title">Dominican Republic</span>
+                    </div>
+                </mat-list-item>
+            </mat-nav-list>
+            <h5 class="sub-heading">Countries</h5>
+            <mat-nav-list>
+                @for ( country of countries; track country.name) {
+                <mat-list-item>
+                    <div class="list-item">
+                        <span class="flag"><img [src]="country.flag" [alt]="country.name" width="17.33" ></span>
+                        <span class="title">{{ country.name }}</span>
+                        <span class="toggler"><mat-icon matListItemIcon>add</mat-icon></span>
+                    </div>
+                </mat-list-item>
+            }
+            </mat-nav-list>
+            <h5 class="sub-heading">Favourites</h5>
+            <mat-nav-list>
+                <mat-list-item>
+                    <div class="list-item">
+                        <span class="flag"><img src="https://media.api-sports.io/flags/gb.svg" width="17.33" alt=""></span>
+                        <span class="title">Dominican Republic</span>
+                    </div>
+                </mat-list-item>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
             <mat-toolbar>
                 <button mat-button (click)="snav.toggle()">
-                {{ handleToggle ? '<< Hide' : 'Show >>'}}
-                </button>
+                    {{ handleToggle ? '<< Hide' : 'Show >>' }} </button>
             </mat-toolbar>
             <router-outlet />
         </mat-sidenav-content>
