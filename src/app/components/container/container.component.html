@@ -5,7 +5,8 @@
             <mat-nav-list>
                 <mat-list-item>
                     <div class="list-item">
-                        <span class="flag"><img src="https://media.api-sports.io/flags/gb.svg" width="17.33" alt=""></span>
+                        <span class="flag"><img src="https://media.api-sports.io/flags/gb.svg" width="17.33"
+                                alt=""></span>
                         <span class="title">Dominican Republic</span>
                     </div>
                 </mat-list-item>
@@ -15,18 +16,19 @@
                 @for ( country of countries; track country.name) {
                 <mat-list-item>
                     <div class="list-item">
-                        <span class="flag"><img [src]="country.flag" [alt]="country.name" width="17.33" ></span>
+                        <span class="flag"><img [src]="country.flag" [alt]="country.name" width="17.33"></span>
                         <span class="title">{{ country.name }}</span>
                         <span class="toggler"><mat-icon matListItemIcon>add</mat-icon></span>
                     </div>
                 </mat-list-item>
-            }
+                }
             </mat-nav-list>
             <h5 class="sub-heading">Favourites</h5>
             <mat-nav-list>
                 <mat-list-item>
                     <div class="list-item">
-                        <span class="flag"><img src="https://media.api-sports.io/flags/gb.svg" width="17.33" alt=""></span>
+                        <span class="flag"><img src="https://media.api-sports.io/flags/gb.svg" width="17.33"
+                                alt=""></span>
                         <span class="title">Dominican Republic</span>
                     </div>
                 </mat-list-item>
@@ -34,10 +36,17 @@
         </mat-sidenav>
         <mat-sidenav-content>
             <mat-toolbar>
-                <button mat-button (click)="snav.toggle()">
-                    {{ handleToggle ? '<< Hide' : 'Show >>' }} </button>
+                <button mat-raised-button (click)="snav.toggle()">
+                    {{ handleToggle ? 'Hide' : 'Show' }} sidenav </button>
             </mat-toolbar>
-            <router-outlet />
+            <div class="content">
+                <main>
+                    <router-outlet />
+                </main>
+                <div class="aside">
+                    <h1>RIGHT SIDENAV CONTENT</h1>
+                </div>
+            </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

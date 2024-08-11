@@ -1,11 +1,73 @@
-<main>
-    <section class="container">
-        <h1 class="title">Soccer is for life</h1>
-        <p class="intro">Welcome to <span>DimbaTips!</span>, Here we talk, breath, eat and drink soccer.</p>
-    </section>
-    <mat-divider></mat-divider>
-    <section>
-        <table>
-        </table>
-    </section>
-</main>
+<div class="container">
+    <div>
+        <mat-tab-group [selectedIndex]="defaultTabIndex" class="predictions-tab-group">
+            <mat-tab id="mat-label" label="Yesterday's predictions">Yesterday predictions</mat-tab>
+            <mat-tab class="mat-label" label="Today's predictions">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Home team - Away team</th>
+                        <td mat-cell *matCellDef="let match">
+                            <div class="teams">
+                                <section class="logo">
+                                    <img [src]="match.league.logo" [alt]="match.league.name" width="20" height="20">
+                                    <span>Xyz</span>
+                                    <mat-icon matListItemIcon>star</mat-icon>
+                                </section>
+                                <section class="name">
+                                    <span>{{ match.teams.home.name }}</span>
+                                    <span>{{ match.teams.away.name }}</span>
+                                    <span>{{ match.fixture.date }}</span>
+                                </section>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="probability">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span>Probability in %</span><br> 1 X 2
+                        </th>
+                        <td mat-cell *matCellDef="">
+                            <div class="probability">
+                                <span>24</span>
+                                <span>36</span>
+                                <span>40</span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="prediction">
+                        <th mat-header-cell *matHeaderCellDef>Tip</th>
+                        <td mat-cell *matCellDef="">
+                            <div class="prediction">
+                                <button mat-icon-button>X</button>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="score">
+                        <th mat-header-cell *matHeaderCellDef>Correct score</th>
+                        <td mat-cell *matCellDef="">
+                            <div class="score">
+                                <span>1 - 3</span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="result">
+                        <th mat-header-cell *matHeaderCellDef>Result</th>
+                        <td mat-cell *matCellDef="">
+                            <div class="result">
+                                <span>2 - 4</span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </mat-tab>
+            <mat-tab class="mat-label" label="Tommorow's predictions">Tommorow predictions</mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>

@@ -4,18 +4,21 @@ html, body { height: 100%; box-sizing: border-box;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 :root {
     --color-shockingly-green: #0ae448;
-    --color-just-black: #0e100f;
+    // --color-just-black: #0e100f;
+    --color-just-black: #222;
     --color-surface-white: #fffce1;
     --color-pink: #fec5fb;
-    --color-shockingly-pink: #f100cb;
+    --color-shockingly-pink: #f100cb; 
     --color-orangey: #ff8709;
     --color-lilac: #9d95ff;
+    --color-slate-blue: #6a5acd;
     --color-lt-green: #abff84;
     --color-blue: #00bae2;
     --color-grey: gray;
     --color-surface75: #bbbaa6;
     --color-surface50: #7c7c6f;
     --color-surface25: #42433d;
+    --color-surface10: #222;
     --gradient-macha: linear-gradient(114.41deg,var(--color-shockingly-green)20.74%,var(--color-lt-green)65.5%);
     --gradient-orange-crush: linear-gradient(111.45deg,var(--color-orangey)19.42%,#f7bdf8 73.08%);
     --gradient-lipstick: linear-gradient(165.72deg,#f7bdf8 21.15%,#cd237f 81.93%);
@@ -61,3 +64,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         display: none;
     }
 }
+
+
+//  /* Extra small devices (phones, 600px and down) */
+//  @media only screen and (max-width: 600px) {...}
+
+//  /* Small devices (portrait tablets and large phones, 600px and up) */
+//  @media only screen and (min-width: 600px) {...}
+ 
+//  /* Medium devices (landscape tablets, 768px and up) */
+//  @media only screen and (min-width: 768px) {...}
+ 
+//  /* Large devices (laptops/desktops, 992px and up) */
+//  @media only screen and (min-width: 992px) {...}
+ 
+//  /* Extra large devices (large laptops and desktops, 1200px and up) */
+//  @media only screen and (min-width: 1200px) {...} 

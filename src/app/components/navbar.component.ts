@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
+import { MatBadgeModule } from '@angular/material/badge';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [ MatButtonModule, MatIconModule, RouterLink, RouterLinkActive ],
+  imports: [ MatBadgeModule, MatButtonModule, MatIconModule, RouterLink, RouterLinkActive ],
   template: `
     <header>
       <nav>
@@ -20,36 +21,54 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
               <li><a href="#" routerLink="/livescores" routerLinkActive="activebutton" airaCurrentWhenActive="page">
                   <button mat-button>Livescores</button>
               </a></li>
-              <li><a href="#" routerLink="/betslip" routerLinkActive="activebutton" airaCurrentWhenActive="page">
-                  <button mat-button>Betslip</button>
+              <li><a href="#" class="slip" routerLink="/betslip" routerLinkActive="activebutton" airaCurrentWhenActive="page">
+                  <button mat-button >Betslip</button>
+              </a></li>
+              <li><a href="#" class="treble" routerLink="/treble" routerLinkActive="activebutton" airaCurrentWhenActive="page">
+                  <button mat-button matBadge="new" matBadgePosition="after" >Tatu chafu</button>
               </a></li>
           </ul>
       </nav>
     </header>`,
   styles: `
   header {
-    height: 100%;
+    background-color: var(--color-just-black);
+    min-height: 100px;
+    // background-color: teal;
+    margin: 25px 10px;
+    display: flex;
+    align-items: center;
+
     nav {
-        background-color: var(--color-just-black);
         display: flex;
-        align-items: center;
-        border-bottom: 1px solid var(--color-surface50);
+        width: fit-content;
+        align-item: center;
+        min-height: 50px;
+
         ul {
             display: flex;
             flex-flow: row wrap;
             list-style-type: none;
             padding: 0px;
-            margin: 25px 0;
+            margin: 0;
+            align-item: center;
+            
+            li {
+                margin: 5px 5px 7px;
+            }
+            li:first-child {
+            margin-right: 15px
+            
+            }
         }
 
         button {
             color: var(--color-surface50) !important;
-            font-size: .975rem;
+            font-size: 1rem;
             cursor: pointer;
             letter-spacing: .02em;
-            line-height: 1.05;
             transition: color .3s var(--ease-in-out-quart);
-            margin-right: 10px;
+            // border-radius: 0;
         }
 
         button:hover {
@@ -67,6 +86,15 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             font-size: 1.4rem;
             font-weight: 600;
             border: none;
+            border-radius: 0;
+            text-align: start;
+        }
+
+        .slip button {
+            color: var(--color-lt-green) !important;
+        }
+        .treble button {
+            color: var(--color-orangey) !important;
         }
     }
 }

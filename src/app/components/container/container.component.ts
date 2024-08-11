@@ -17,13 +17,13 @@ export interface Country {
 }
 
 @Component({
-  selector: 'app-side-nav',
+  selector: 'app-container',
   standalone: true,
   imports: [RouterOutlet, MatSidenavModule, FormsModule, MatListModule, MatIconModule, MatButtonModule, MatToolbarModule, MatCheckboxModule],
-  templateUrl: './side-nav.component.html',
-  styleUrl: './side-nav.component.scss'
+  templateUrl: './container.component.html',
+  styleUrl: './container.component.scss'
 })
-export class SideNavComponent implements OnDestroy {
+export class ContainerComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   events: string[] = [];
   opened!: boolean;
