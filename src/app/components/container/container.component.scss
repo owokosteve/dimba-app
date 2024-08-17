@@ -1,7 +1,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    margin: 10px;
 
     .is-mobile {
         // position: fixed;
@@ -109,9 +108,11 @@ mat-sidenav-content {
         main {
             margin-right: 10px;
             padding: 10px;
+            border: 1px solid var(--color-surface25);
         }
         .aside {
             padding: 10px;
+            border: 1px solid var(--color-surface25);
         }
 
     }

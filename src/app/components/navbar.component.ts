@@ -15,6 +15,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
               <li><a href="#" class="logo">
                   <button mat-button>DimbaTips</button>
               </a></li>
+              <li><a href="#" routerLink="/fixtures" routerLinkActive="activebutton" airaCurrentWhenActive="page">
+                  <button mat-button>Fixtures</button>
+              </a></li>
               <li><a href="#" routerLink="/predictions" routerLinkActive="activebutton" airaCurrentWhenActive="page">
                   <button mat-button>Predictions</button>
               </a></li>
@@ -34,15 +37,14 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   header {
     background-color: var(--color-just-black);
     min-height: 100px;
-    // background-color: teal;
-    margin: 25px 10px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--color-surface25);
 
     nav {
         display: flex;
         width: fit-content;
-        align-item: center;
+        align-items: center;
         min-height: 50px;
 
         ul {
@@ -51,7 +53,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             list-style-type: none;
             padding: 0px;
             margin: 0;
-            align-item: center;
+            align-items: center;
             
             li {
                 margin: 5px 5px 7px;
