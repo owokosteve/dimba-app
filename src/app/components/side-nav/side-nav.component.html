@@ -1,0 +1,42 @@
+<div class="sub-heading">Popular Leagues</div>
+<mat-nav-list>
+    <mat-list-item>
+        <div class="list-item">
+            <span class="flag"><img src="https://media.api-sports.io/flags/gb.svg" width="17.33" alt=""></span>
+            <span class="title">Wantitwa mos</span>
+        </div>
+    </mat-list-item>
+</mat-nav-list>
+<div class="sub-heading">Countries</div>
+@for (country of countries; track country.name) {
+<mat-accordion multi="false">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span class="flag"><img [src]="country.flag" [alt]="country.name" width="17.33"></span>
+                <span class="title">{{ country.name }}</span>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+            <mat-nav-list>
+                @for (league of leagues; track league.league.id ) {
+                @if ( league.country.name === country.name) {
+                <mat-list-item>
+                    <span class="title">{{ league.league.name }}</span>
+                </mat-list-item>
+                }
+                }
+            </mat-nav-list>
+        </ng-template>
+    </mat-expansion-panel>
+</mat-accordion>
+}
+<h5 class="sub-heading">Favourites</h5>
+<mat-nav-list>
+    <mat-list-item>
+        <div class="list-item">
+            <span class="flag"><img src="https://media.api-sports.io/flags/gb.svg" width="17.33" alt=""></span>
+            <span class="title">Dominican Republic</span>
+        </div>
+    </mat-list-item>
+</mat-nav-list>

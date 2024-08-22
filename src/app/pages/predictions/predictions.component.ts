@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FixturesService } from '../../services/fixtures.service';
 import { MatTabsModule } from '@angular/material/tabs';
-import { PredictionsListComponent } from '../../components/predictions-list/predictions-list.component';
+import { PredictionsListComponent } from '../../containers/predictions-list/predictions-list.component';
 
 @Component({
   selector: 'app-predictions',
@@ -45,35 +45,35 @@ export class PredictionsComponent {
   }
   
   ngOnInit() {
-    this.fixtures.getFixturesByDate(this.today).subscribe(response => {
-      for (let key in response) {
-        if (key === 'response') {
-          this.todayFixtures = response[key];
-          break;
-        }
-      }
-    });
-    console.log(this.today);
+    // this.fixtures.getFixturesByDate(this.today).subscribe(response => {
+    //   for (let key in response) {
+    //     if (key === 'response') {
+    //       this.todayFixtures = response[key];
+    //       break;
+    //     }
+    //   }
+    // });
+    // console.log(this.today);
     
-    this.fixtures.getFixturesByDate(this.yesterday).subscribe(response => {
-      for (let key in response) {
-        if (key === 'response') {
-          this.yesterdayFixtures = response[key];
-          break;
-        }
-      }
-    });
-    console.log(this.yesterday);
+    // this.fixtures.getFixturesByDate(this.yesterday).subscribe(response => {
+    //   for (let key in response) {
+    //     if (key === 'response') {
+    //       this.yesterdayFixtures = response[key];
+    //       break;
+    //     }
+    //   }
+    // });
+    // console.log(this.yesterday);
 
-    this.fixtures.getFixturesByDate(this.tommorow).subscribe(response => {
-      for (let key in response) {
-        if (key === 'response') {
-          this.tommorowFixtures = response[key];
-          break;
-        }
-      }
-    });
-    console.log(this.tommorow);
+    // this.fixtures.getFixturesByDate(this.tommorow).subscribe(response => {
+    //   for (let key in response) {
+    //     if (key === 'response') {
+    //       this.tommorowFixtures = response[key];
+    //       break;
+    //     }
+    //   }
+    // });
+    // console.log(this.tommorow);
   }
 }
 

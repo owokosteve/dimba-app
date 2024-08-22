@@ -14,16 +14,16 @@ export class FixturesService {
 
   constructor(private http: HttpClient) { }
 
-  getFixtures(dateString: string): Observable<any> {
-    return this.http.get(this.fixturesUri, {
-      observe: 'body',
-      context: new HttpContext(),
-      headers: this.baseHeaders,
-      params: new HttpParams().set('date', dateString)
-    })
-    .pipe(
-        tap(() => console.log(`Fixtures for date: ${dateString} retrieved successfully`)),
-        shareReplay(1)
-      );
-  }
+  // getFixtures(dateString: string): Observable<any> {
+  //   return this.http.get(this.fixturesUri, {
+  //     observe: 'body',
+  //     context: new HttpContext(),
+  //     headers: this.baseHeaders,
+  //     params: new HttpParams().set('date', dateString)
+  //   })
+  //   .pipe(
+  //       tap(() => console.log(`Fixtures for date: ${dateString} retrieved successfully`)),
+  //       shareReplay(1)
+  //     );
+  // }
 }

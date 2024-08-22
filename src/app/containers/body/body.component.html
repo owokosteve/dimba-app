@@ -1,0 +1,21 @@
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'push' : 'side'" [(opened)]="handleToggle">
+            <app-side-nav></app-side-nav>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <mat-toolbar>
+                <button mat-button (click)="snav.toggle()">
+                    {{ handleToggle ? '<< Hide' : '>> Show' }} sidenav </button>
+            </mat-toolbar>
+            <div class="content">
+                <main>
+                    <router-outlet />
+                </main>
+                <div class="aside">
+                    <h1>RIGHT SIDENAV CONTENT</h1>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

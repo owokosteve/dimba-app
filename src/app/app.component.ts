@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar.component';
-import { ContainerComponent } from "./components/container/container.component";
+import { BodyComponent } from "./containers/body/body.component";
+import { HeaderComponent } from './containers/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { ContainerComponent } from "./components/container/container.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   host: {ngSkipHydration: 'true'},
-  imports: [RouterOutlet, NavbarComponent, ContainerComponent]
+  imports: [RouterOutlet, BodyComponent, HeaderComponent]
 })
 export class AppComponent {
   title = 'dimba-app';
